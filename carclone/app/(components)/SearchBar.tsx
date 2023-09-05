@@ -10,7 +10,7 @@ const SearchBar = () => {
     const [manufacturer , setManufacturer ] = useState("")
     const [model , setModel ] = useState("")
   
-    const handleSearch=(e:React.FormElement<HTMLFormElement>)=>{
+    const handleSearch=(e:React.FormElement<HTMLDomElement>)=>{
         e.preventDefault()
         if(manufacturer==="" && model===""){
             return alert("Please fill the search bar")
