@@ -1,13 +1,15 @@
 import { MouseEventHandler } from "react";
 
-export interface CustomButtonProps{
-
-    title:string;
-    containerStyles?:string;
-    btnType:"button" |"submit";
-    handleClick:
-    MouseEventHandler<HTMLButtonElement>,
-}
+export interface CustomButtonProps {
+    isDisabled?: boolean;
+    btnType?: "button" | "submit";
+    containerStyles?: string;
+    textStyles?: string;
+    title: string;
+    rightIcon?: string;
+    handleClick?: MouseEventHandler<HTMLButtonElement>;
+  }
+  
 
 
 export interface SearchManufacturerProps{
@@ -34,4 +36,31 @@ export interface CarProps{
     transmission:string
     year:number
    
+}
+
+
+export interface FilterProps {
+    manufacturer:string
+    model:number
+    fuel:string
+    limit:number
+    year:string
+
+}
+
+export interface OptionProps {
+    title:string
+    value:string
+}
+
+export  interface CustomFilterProps {
+
+    title:string
+    options:OptionProps[]
+
+}
+
+export interface ShowMoreProps {
+    pageNumber:number
+    isNext:boolean
 }
