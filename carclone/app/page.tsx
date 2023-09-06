@@ -5,6 +5,7 @@ import { fuels, yearsOfProduction } from "@/constants";
 
 export default async function Home({searchParams}) {
 
+
   const allCars=await fetchCars({
     manufacturer:searchParams.manufacturer || "",
     model:searchParams.model || 2020,
@@ -14,7 +15,11 @@ export default async function Home({searchParams}) {
     
   })
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
-  console.log(allCars)
+  
+
+  
+
+
   return (
     <main className="overflow-hidden">
       <Hero/>
