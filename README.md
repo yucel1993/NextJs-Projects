@@ -1,6 +1,6 @@
 # NextJs-Projects
 
-## Netflix App
+## Car App
 Technologies: Nextjs Typescript Tailwind HeadlessUi Clark
 
 Demo Link  (https://carapp-3hcly0h8i-yucel1993.vercel.app)
@@ -9,7 +9,7 @@ Demo Link  (https://carapp-3hcly0h8i-yucel1993.vercel.app)
 
 <br/>
 
-<img src="./carclones/cars.png"/>
+<img src="./carclone/cars.png"/>
 
 
 
