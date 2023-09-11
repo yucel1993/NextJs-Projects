@@ -16,7 +16,7 @@ Demo Link  (https://carapp-3hcly0h8i-yucel1993.vercel.app)
 
 
 ## Netflix App
-Technologies: Nextjs React FireBase Tailwind
+Technologies: Nextjs FireBase Tailwind
 
 Demo Link  (https://netflixappv1-dmzzq2spu-yucel1993.vercel.app)
 
