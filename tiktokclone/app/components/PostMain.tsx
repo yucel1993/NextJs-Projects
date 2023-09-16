@@ -67,7 +67,7 @@ export default function PostMain({post}:PostMainCompTypes){
                 loop
                 controls
                 muted
-                src={"./video1.mp4"}
+                src={`${post.video_url}`}
                 className="rounded-xl object-cover mx-auto h-full"
                 />
                 <img 

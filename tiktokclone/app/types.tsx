@@ -6,6 +6,24 @@ export interface RandomUsers {
     name:string
     image:string
 }
+export interface TextInputCompTypes{
+    string:string;
+    inputType:string;
+    placeholder:string;
+    error:string;
+    onUpdate:(newValue:string)=>void;
+}
+
+export interface CropperDimensions {
+    height?: number |null;
+    width?: number | null;
+    left?: number | null;
+    top?: number |null;
+}
+export interface ShowErrorObject {
+    type:string;
+    message:string;
+}
 export interface Like{
     id:string;
     user_id:string;
