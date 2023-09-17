@@ -1,9 +1,12 @@
 import { CropperDimensions, ShowErrorObject } from "@/app/types";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 import TextInput from "../TextInput";
+import {Cropper} from "react-advanced-cropper";
+import "react-advanced-cropper/dist/style.css"
+import { BiLoaderCircle } from "react-icons/bi";
 
 
 export default function EditProfileOverlay(){
@@ -11,15 +14,22 @@ export default function EditProfileOverlay(){
 
     const [file , setFile ] = useState<File | null >(null)
     const [cropper , setCropper ] = useState<CropperDimensions | null>(null)
-    const [uploadedImage , setUploadedImage ] = useState<string>(null)
+    const [uploadedImage , setUploadedImage ] = useState<string>("")
     const [userImage , setUserImage ] = useState<string | "" >("https://placehold.co/100")
     const [userName , setUserName ] = useState<string | "">("")
     const [userBio , setUserBio ] = useState<string | "">("")
     const [isUpdating , setIsUpdating ] = useState(false)
     const [error , setError ] = useState<ShowErrorObject |null>(null)
 
-    const getUploadedImage = ()=>{
-        console.log("getUploaded image")
+    const getUploadedImage = (event:React.ChangeEvent<HTMLInputElement>)=>{
+        const selectedFile=event.target.files && event.target.files[0]
+        if(selectedFile){
+            setFile(selectedFile);
+            setUploadedImage(URL.createObjectURL(selectedFile))
+        }else{
+            setFile(null);
+            setUploadedImage(null)
+        }
     }
 
     const showError=(type:string) =>{
@@ -27,6 +37,10 @@ export default function EditProfileOverlay(){
             return error.message
         }
         return ""
+    }
+    
+    const cropAndUpdateImage=()=>{
+        console.log("cropandupdateimage")
     }
 
     return(
@@ -122,20 +136,97 @@ export default function EditProfileOverlay(){
                             px-3
                             focus:outline-none
                             "
+                            cols={30}
+                            rows={4}
+                                value={userBio || ""}
+                                maxLength={80}
+                                onChange={(e)=>{setUserBio(e.target.value)}}
                             
                             >
 
                             </textarea>
+                            <p
+                            className="text-[11px] text-gray-500"
+                            >
+                                {userBio ? userBio.length : 0}/80
+                            </p>
                                 </div>
                             </div>
 
                      </div>
                 </div>
             ) : (
-                    <div></div>
+                    <div
+                    className="w-full max-h-[420px] mx-auto bg-black circle-stencil"
+                    >
+                        <Cropper 
+                        stencilProps={{aspectRatio:1}}
+                        className="h-[400px]"
+                        onChange={(cropper)=>setCropper(cropper.getCoordinates())}
+                        src={uploadedImage}
+                        />
+                    </div>
             )}
                 </div>
                 
+                <div 
+                id="ButtonSection"
+                className="absolute p-5 left-0 bottom-0 border-t border-t-gray w-full">
+                    {!uploadedImage ? (
+                        <div className="flex items-center justify-end"
+                        id="UpdateInfoButtons"
+                        >
+                            <button
+                             disabled={isUpdating}
+                           
+                            className="flex items-center border rounded-sm px-3 py-[6px] hover:bg-gray-100"
+                            >
+                                <span
+                                className="px-2 font-medium text-[15px]"
+                                >
+                                    Cancel
+                                </span>
+                            </button>
+                            <button
+                               disabled={isUpdating}
+                            
+                            className="flex items-center bg-[#F02C56] text-white border rounded-md ml-3 px-3 py-[6px]"
+                            >
+                                <span
+                                className="px-2 font-medium text-[15px]"
+                                >
+                                    {isUpdating ? <BiLoaderCircle color={'white'} className="my-1 mx-2.5 animate-spin" /> : "Save"}
+                                </span>
+                            </button>
+                        </div>
+                    ) : (
+                        
+                        <div className="flex items-center justify-end"
+                        id="CropperButtons"
+                        >
+                            <button
+                             onClick={()=>setUploadedImage(null)}
+                            className="flex items-center border rounded-sm px-3 py-[6px] hover:bg-gray-100"
+                            >
+                                <span
+                                className="px-2 font-medium text-[15px]"
+                                >
+                                    Cancel
+                                </span>
+                            </button>
+                            <button
+                            onClick={()=>cropAndUpdateImage()}
+                            className="flex items-center bg-[#F02C56] text-white border rounded-md ml-3 px-3 py-[6px]"
+                            >
+                                <span
+                                className="px-2 font-medium text-[15px]"
+                                >
+                                    {isUpdating ? <BiLoaderCircle color={'white'} className="my-1 mx-2.5 animate-spin" /> : "Apply"}
+                                </span>
+                            </button>
+                        </div>
+                    )}
+                </div>
 
             </div>
             </div>
