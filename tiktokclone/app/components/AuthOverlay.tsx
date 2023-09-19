@@ -6,7 +6,7 @@ import Login from "./auth/Login"
 import Register from "./auth/Register"
 
 export default function AuthOverlay(){
-    const [isRegister , setIsRegister ] = useState<boolean>(true)
+    const [isRegister , setIsRegister ] = useState<boolean>(false)
     
     return(
         <>
