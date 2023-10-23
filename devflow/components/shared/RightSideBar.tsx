@@ -4,11 +4,11 @@ import RenderTag from "./RenderTag";
 
 const RightSideBar = () => {
   const hotQuestions = [
-    { _id: 1, title: "How do I use express as a custom hook" },
-    { _id: 2, title: "How do I use express as a custom hook" },
-    { _id: 3, title: "How do I use express as a custom hookasdadada" },
+    { _id: "1", title: "How do I use express as a custom hook" },
+    { _id: "2", title: "How do I use express as a custom hook" },
+    { _id: "3", title: "How do I use express as a custom hookasdadada" },
     {
-      _id: 4,
+      _id: "4",
       title:
         "How do I use express as a custom hook lorem  dfaffasfsafsaf fdaf dsfd",
     },
@@ -16,22 +16,22 @@ const RightSideBar = () => {
 
   const popularTags = [
     {
-      _id: 1,
+      _id: "1",
       name: "Javascript",
       totalQuestions: 5,
     },
     {
-      _id: 2,
+      _id: "2",
       name: "Javascript",
       totalQuestions: 10,
     },
     {
-      _id: 3,
+      _id: "3",
       name: "Javascript",
       totalQuestions: 123,
     },
     {
-      _id: 4,
+      _id: "4",
       name: "Javascript",
       totalQuestions: 5,
     },
