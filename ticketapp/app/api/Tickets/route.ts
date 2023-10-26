@@ -27,8 +27,10 @@ export async function POST(req) {
 }
 
 export async function GET() {
+  console.log("backend Get");
   try {
     const tickets = await Ticket.find();
+    console.log("Tickets", tickets);
     return NextResponse.json(
       {
         tickets,

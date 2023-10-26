@@ -4,7 +4,11 @@ import TicketCard from "./(components)/TicketCard";
 const getTickets = async () => {
   try {
     const res = await fetch("http://localhost:3000/api/Tickets", {
+      method: "GET",
       cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
     if (!res.ok) {
@@ -21,7 +25,7 @@ const getTickets = async () => {
 
 const Dashboard = async () => {
   const { tickets } = await getTickets();
-  console.log(tickets);
+  console.log("Tickets are here ", tickets);
   return (
     <div className="p-5">
       <div className="lg:grid grid-cols-2 xl:grid-cols-4">
