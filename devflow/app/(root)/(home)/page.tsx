@@ -8,61 +8,6 @@ import NoResult from "@/components/shared/NoResult";
 import QuestionCard from "@/components/cards/QuestionCard";
 import { getQuestions } from "@/lib/actions/question.action";
 
-// const questions = [
-//   {
-//     _id: "1",
-//     title: "How to Create Interfaces in TypeScript?",
-//     tags: [
-//       { _id: "tag1", name: "TypeScript" },
-//       { _id: "tag2", name: "Interfaces" },
-//     ],
-//     author: {
-//       _id: "author1",
-//       name: "John Doe",
-//       picture: "john-doe.jpg",
-//     },
-
-//     upvotes: 10,
-//     views: 150,
-//     answers: [],
-//     createdAt: new Date("2023-10-23"),
-//   },
-//   {
-//     _id: "2",
-//     title: "Getting Started with React Hooks",
-//     tags: [
-//       { _id: "tag3", name: "React" },
-//       { _id: "tag4", name: "Hooks" },
-//     ],
-//     author: {
-//       _id: "author2",
-//       name: "Jane Smith",
-//       picture: "jane-smith.jpg",
-//     },
-//     upvotes: 5,
-//     views: 75,
-//     answers: [],
-//     createdAt: new Date("2023-9-24"),
-//   },
-//   {
-//     _id: "3",
-//     title: "Node.js REST API Best Practices",
-//     tags: [
-//       { _id: "tag5", name: "Node.js" },
-//       { _id: "tag6", name: "REST" },
-//     ],
-//     author: {
-//       _id: "author3",
-//       name: "Mike Johnson",
-//       picture: "mike-johnson.jpg",
-//     },
-//     upvotes: 8,
-//     views: 100,
-//     answers: [],
-//     createdAt: new Date("2023-10-20"),
-//   },
-// ];
-
 export default async function Home() {
   const result = await getQuestions({});
 
