@@ -57,6 +57,7 @@ const Question = ({ mongoUserId }: Props) => {
         content: values.explanation,
         tags: values.tags,
         author: JSON.parse(mongoUserId),
+        path: pathname,
       });
 
       router.push("/");
@@ -123,7 +124,7 @@ const Question = ({ mongoUserId }: Props) => {
                   {...field}
                 />
               </FormControl>
-              <FormDescription className="body-regular mt-2.5 text-light-500">
+              <FormDescription className="body-regular text-light-500 mt-2.5">
                 Be specific and imagine you&apos;re asking a question to another
                 person
               </FormDescription>
@@ -178,7 +179,7 @@ const Question = ({ mongoUserId }: Props) => {
                   }}
                 />
               </FormControl>
-              <FormDescription className="body-regular mt-2.5 text-light-500">
+              <FormDescription className="body-regular text-light-500 mt-2.5">
                 Introduce the problem and expand on what you put in the title .
                 Minimum 20 characters.
               </FormDescription>
@@ -226,7 +227,7 @@ const Question = ({ mongoUserId }: Props) => {
                   )}
                 </>
               </FormControl>
-              <FormDescription className="body-regular mt-2.5 text-light-500">
+              <FormDescription className="body-regular text-light-500 mt-2.5">
                 Add up to 3 tags to describe what your question is about. You
                 need to press enter to add tag.
               </FormDescription>
@@ -237,7 +238,7 @@ const Question = ({ mongoUserId }: Props) => {
 
         <Button
           type="submit"
-          className="primary-gradient w-fit !text-light-900"
+          className="primary-gradient !text-light-900 w-fit"
           disabled={isSubmitting}
         >
           {isSubmitting ? (
